@@ -5,14 +5,15 @@ Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.
 
 注 : 自動化ではありません
 
-## 目次
-- [feature / 機能](#feature)
+## contents / 目次
+- [feature / 機能](#feature--機能)
     - [Auto Select "単語の意味" / "単語の意味"を自動で選択する機能](#auto-select-単語の意味)
         - [設定](#disable-auto-select)で無効にできます
     - [Other / その他の機能](#others)
+- [Supported Units List / サポートされているユニット一覧](#supported-units-list)
 - [How to Use / インストール方法](#how-to-use)
 
-## feature
+## feature / 機能
 ### Auto Select "単語の意味"
 問題が終わった時に、自動的に次の"単語の意味"を選択する機能
 
@@ -32,7 +33,6 @@ Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.
     - 自動的にCOCETを選択する
         - (正確には、表示されている書籍が一つの場合、それを選択する)
 
-
 ## Supported Units List
 - [◎] 単語の意味
 - [○] 空所補充
@@ -41,13 +41,12 @@ Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.
 
 ## How to Use
 ### 1. 拡張機能のファイル群をダウンロード
-[>>> ZIPファイルをダウンロード <<<](https://github.com/cykps/better-linguaporta/archive/refs/heads/main.zip)
-
-ダウンロードしたファイルは展開してください
+1. [>>> ZIPファイルをダウンロード <<<](https://github.com/cykps/better-linguaporta/archive/refs/heads/main.zip)
+2. ダウンロードしたファイルは**展開**してください
 
 ### 2. Chromeに拡張機能を読み込ませる
 1. URLバーの右側にあるアイコンのうち、`拡張機能`のアイコン(パズルの1ピース)をクリック、それがない場合は`︙`をクリックしてから、`拡張機能`をクリック
-1. 一番下の`拡張機能を管理`をクリック
+1. `拡張機能を管理`をクリック
 1. 開かれたページの右上の`デベロッパーモード`をオンにする
 1. デベロッパーモードをオンにすると、左上に`パッケージ化されていな拡張機能を読み込む`と出てくるのでそれをクリック
 1. フォルダーの選択画面が出てくるので、先ほど展開した`better-linguaporta-main`フォルダを探し、選択する。(`better-linguaporta-main`の中に同じ名前のフォルダ`better-linguaporta-main`がある場合があるので、その場合、中に入っている方のフォルダを選択する)
