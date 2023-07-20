@@ -14,11 +14,11 @@
 
     "content_scripts": [
         {
-            "matches": ["https://*.linguaporta.jp/user/seibido/index.php"],
+            "matches": ["https://*.linguaporta.jp/user/seibido/*"],
             "js": ["src/script.js"]
         },
         {
-            "matches": ["https://*.linguaporta.jp/user/seibido/index.php"],
+            "matches": ["https://*.linguaporta.jp/user/seibido/*"],
             "js": ["src/override.js"],
             "run_at": "document_start"
         }
