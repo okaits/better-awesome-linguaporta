@@ -3,6 +3,8 @@
 
 Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)
 
+注 : 自動化ではありません
+
 ## 目次
 - [feature / 機能](#feature)
     - [Auto Select "単語の意味" / "単語の意味"を自動で選択する機能](#auto-select-単語の意味)
