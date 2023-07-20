@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "Better LINGUAPORTA",
+    "version": "1.0.0",
+
+    "description": "LINGUAPORTAの操作を超効率化します!",
+    "icons": {
+        "256": "icon/256.png"
+    },
+
+    "action": {
+        "default_popup": "src/popup.html"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["https://*.linguaporta.jp/user/seibido/index.php"],
+            "js": ["src/script.js"]
+        },
+        {
+            "matches": ["https://*.linguaporta.jp/user/seibido/index.php"],
+            "js": ["src/override.js"],
+            "run_at": "document_start"
+        }
+    ],
+    "declarative_net_request": {
+        "rule_resources": [{
+            "id": "disableGif",
+            "enabled": true,
+            "path": "src/disableGif.json"
+        }]
+    },
+    "permissions": [
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback",
+        "storage"
+    ],
+    "host_permissions": [
+        "www.linguaporta.jp/material/site_img/seikai/*.gif"
+    ]
+}

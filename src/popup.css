@@ -1,0 +1,55 @@
+body {
+    width: 320px;
+
+    background-color: #222;
+
+    font-family: 'Arial','Yu Gothic UI','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+    font-size: 24px;
+    color: snow;
+}
+
+h1 {
+    font-size: 24px;
+
+    user-select: none;
+}
+
+p {
+    user-select: none;
+}
+
+.toggle-outer {
+    width: 64px;
+    height: 32px;
+
+    border-radius: 40px;
+    border: 2px solid snow;
+
+    overflow: hidden;
+}
+
+.toggle-inner {
+    width: calc(32px - 4px - 3px);
+    height: calc(32px - 4px - 3px);
+
+    margin: 2px 2px;
+
+    border-radius: 0.9rem;
+    border: 1.5px solid snow;
+
+    position: relative;
+    left: 0;
+
+    transition: 0.3s;
+    animation-timing-function: ease-out;
+}
+
+.toggle-inner.show {
+    left: 32px;
+
+    background-color: snow;
+}
+
+.gray {
+    color: gray;
+}
