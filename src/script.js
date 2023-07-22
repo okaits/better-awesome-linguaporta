@@ -137,17 +137,17 @@ if (document.querySelector('.bloc-resp-lessonname')) {
             if (o.autoSelectMean !== false) { //true, undefのとき、自動で'単語の意味'をセレクトする
                 if (thisPageNum === goalPageNum) {
 
-                    searchMean(thisPageNum);
+                    searchMean(thisPageNum + 1);
 
 
                 } else {
-                    unit_view_page(String(goalPageNum));
+                    searchMean(goalPageNum + 1);
                 }
             } else {
 
                 chrome.storage.onChanged.addListener((obj,str) => {
                     if (str === 'local', obj.autoSelectMean.newValue === true) {
-                        searchMean(thisPageNum);
+                        searchMean(thisPageNum + 1);
                     };
                 });
             };
@@ -230,8 +230,25 @@ function unit_view_page(page) {
 
 }
 
-function searchMean(thisPageNum) {
+function searchMean(nextPageNum) {
     let notFound = true;
+
+    let table = document.querySelector('.table-unit-list');
+    let commentEle = document.createElement('div');
+    commentEle.innerHTML = 
+        '<p style="font-size: 2rem">🔍Searching "単語の意味"</p>' +
+        '<p>自動検索の無効化もできます(説明書見てね！)</p>';
+    commentEle.style.textAlign = 'center';
+    commentEle.style.position = 'absolute';
+    commentEle.style.top = '0';
+    commentEle.style.right = '0'
+    commentEle.style.backgroundColor = 'rgba(255,255,255,0.7)';
+    commentEle.style.width = '100%';
+    commentEle.style.height = '100%';
+    table.style.position = 'relative';
+    table.appendChild(commentEle);
+    console.log(commentEle.innerHTML);
+
     document.querySelectorAll('.col-unitname').forEach((v,num) => {
         if (num !== 0) {
             if (txt2typeNum(v.innerHTML) === 0 && v.childNodes[1].firstChild.tagName === 'INPUT') { //有効なクイズがあったら、
@@ -241,8 +258,8 @@ function searchMean(thisPageNum) {
         }
     });
     if (notFound) {
-        chrome.storage.local.set({ 'goalUnitPageNum': thisPageNum + 1},() => {
-            unit_view_page(String(thisPageNum + 1));
+        chrome.storage.local.set({ 'goalUnitPageNum': nextPageNum},() => {
+            unit_view_page(String(nextPageNum));
         });
     }
 }
