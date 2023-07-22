@@ -49,6 +49,6 @@ Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.
 1. `拡張機能を管理`をクリック
 1. 開かれたページの右上の`デベロッパーモード`をオンにする
 1. デベロッパーモードをオンにすると、左上に`パッケージ化されていな拡張機能を読み込む`と出てくるのでそれをクリック
-1. フォルダーの選択画面が出てくるので、先ほど展開した`better-linguaporta-main`フォルダーを選択
+1. フォルダーの選択画面が出てくるので、先ほど展開した`better-linguaporta`フォルダーを選択
 1. 拡張機能が読み込まれます。やったね！(この時`エラー`と表示されるかもしれないが、Chromeのバグなので気にしなくていいです)
 1. [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)を開くと、自動的に動き始めます。
