@@ -41,7 +41,7 @@ Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.
 
 ## How to Use
 ### 1. 拡張機能のファイル群をダウンロード
-1. [>>> ZIPファイルをダウンロード <<<](https://github.com/cykps/better-linguaporta/archive/refs/heads/main.zip)
+1. [ここ](https://github.com/cykps/better-linguaporta/releases)から最新の`better-linguaporta.zip`をダウンロード
 2. ダウンロードしたファイルは**展開**してください
 
 ### 2. Chromeに拡張機能を読み込ませる
