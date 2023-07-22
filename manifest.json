@@ -3,7 +3,7 @@
     "name": "Better LINGUAPORTA",
     "version": "1.0.0",
 
-    "description": "LINGUAPORTAの操作を超効率化します!",
+    "description": "LINGUAPORTAの操作を超効率化(半自動化)します!",
     "icons": {
         "256": "icon/256.png"
     },
