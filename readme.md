@@ -1,9 +1,9 @@
 # Better LINGUAPORTA
-[LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)の操作を超効率化します!
+[LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)の操作を超効率化(半自動化)します!
 
 Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)
 
-注 : 自動化ではありません
+注 : 問題解答の自動化ではありません
 
 ## contents / 目次
 - [feature / 機能](#feature--機能)
@@ -53,4 +53,3 @@ Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.
 ![上記説明の補足画像 - iconとsrcがあって、フォルダー名がbetter-linguaporta-mainならば、フォルダーの選択をクリック](better-linguraporta-install.png)
 1. 拡張機能が読み込まれます。やったね！(この時`エラー`と表示されるかもしれないが、Chromeのバグなので気にしなくていいです)
 1. [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)を開くと、自動的に動き始めます。
-
