@@ -7,15 +7,22 @@ let leftFunc = function () { console.log('leftFunc undefined') };
 const types = ["単語の意味", "空所補充", "単語並び替え", "ディクテーション"];
 
 // クイズのページだったら,
-if (document.querySelector('.bloc-resp-lessonname')) {
+if (document.querySelector('.problem-title')) {
+    scroll(0, 1024)
+    console.log("This is quiz page")
 
-    const lessonName = document.querySelector('.bloc-resp-lessonname').innerHTML;
+    const lessonName = document.querySelector('.page-title').children[0].innerHTML;
+
+    console.log(lessonName);
 
     // 問題タイプ(形式)の判定
     const lessonType = txt2typeNum(lessonName);
 
+    console.log(lessonType);
+
     // Typeが`単語の意味`だったら,
     if (lessonType === 0) {
+        console.log("This is 単語の意味")
         if (isAnsPage()) {
 
             enterFunc = () => {
@@ -33,14 +40,16 @@ if (document.querySelector('.bloc-resp-lessonname')) {
 
         } else if (isTFPage()) {
 
+            console.log("This is 単語の意味->TF")
+
             // デフォルトでは、Enterで次の問題で行く
             enterFunc = () => {
-                document.querySelector('.btn-problem-next').parentNode.submit();
+                document.querySelector('.button-next-problem').parentNode.submit();
             };
 
-            if (isTruePage()) {
-                document.querySelector('.btn-problem-next').parentNode.submit();
-            }
+            /*if (isTruePage()) {
+                document.querySelector('.button-next-problem').parentNode.submit();
+            }*/
 
             if (isFalsePage()) {
                 document.querySelectorAll('input[type="radio"]').forEach((e) => {
@@ -69,13 +78,13 @@ if (document.querySelector('.bloc-resp-lessonname')) {
 
             // デフォルトでは、Enterで次の問題で行く
             enterFunc = () => {
-                document.querySelector('.btn-problem-next').parentNode.submit();
+                document.querySelector('.button-next-problem').parentNode.submit();
             };
 
             
 
             if (isTruePage()) {
-                document.querySelector('.btn-problem-next').parentNode.submit();
+                document.querySelector('.button-next-problem').parentNode.submit();
             }
 
         } else if (isEndPage()) {
@@ -95,7 +104,7 @@ if (document.querySelector('.bloc-resp-lessonname')) {
 
             // デフォルトでは、Enterで次の問題で行く
             enterFunc = () => {
-                document.querySelector('.btn-problem-next').parentNode.submit();
+                document.querySelector('.button-next-problem').parentNode.submit();
             };
 
             // cardがクリックされた場合、Enterで解答する
@@ -108,7 +117,7 @@ if (document.querySelector('.bloc-resp-lessonname')) {
             });
 
             if (isTruePage()) {
-                document.querySelector('.btn-problem-next').parentNode.submit();
+                document.querySelector('.button-next-problem').parentNode.submit();
             }
         } else if (isEndPage()) {
             document.querySelector('.btn-return-units').parentNode.submit();
@@ -184,19 +193,19 @@ function isTFPage() {
 }
 
 function isTruePage() {
-    if (document.querySelector('#true_msg') && document.querySelector('.btn-problem-next')) {
+    if (document.querySelector('#true_msg') && document.querySelector('.button-next-problem')) {
         return true;
     } else { return false; }
 }
 
 function isFalsePage() {
-    if (document.querySelector('#false_msg') && document.querySelector('.btn-problem-next')) {
+    if (document.querySelector('#false_msg') && document.querySelector('.button-next-problem')) {
         return true;
     } else { return false; }
 }
 
 function isEndPage() {
-    if (document.querySelector('#true_msg') && !document.querySelector('.btn-problem-next')) {
+    if (document.querySelector('#true_msg') && !document.querySelector('.button-next-problem')) {
         return true;
     } else { return false; }
 }

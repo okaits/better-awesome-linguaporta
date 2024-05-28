@@ -36,6 +36,6 @@
         "storage"
     ],
     "host_permissions": [
-        "www.linguaporta.jp/material/site_img/seikai/*.gif"
+        "https://www.linguaporta.jp/material/site_img/seikai/*.gif"
     ]
 }
