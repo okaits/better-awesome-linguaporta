@@ -1,15 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="popup.css">
-</head>
-<body>
-    <h1>Better LINGUAPORTA</h1>
-    <p><strong class="gray">></strong> Auto Select "単語の意味"</p>
-    <div class="toggle-outer" id="auto-select-mean"><div class="toggle-inner"></div></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./popup.css" />
+  </head>
+  <body>
+    <h1>Awesome LINGUAPORTA</h1>
+    <div class="property">
+      <span>
+        <strong class="gray bullet">&gt;</strong>
+        Auto Select "単語の意味"
+      </span>
+      <div class="toggle-outer" id="auto-select-mean">
+        <div class="toggle-inner"></div>
+      </div>
+    </div>
+
+    <div class="property">
+      <span>
+        <strong class="gray bullet">&gt;</strong>
+        Reset Done "単語の意味"Count
+      </span>
+      <button class="button-outer" id="reset-count">
+        <div class="button-inner"></div>
+      </button>
+    </div>
 
     <script src="popup.js"></script>
-</body>
+  </body>
 </html>

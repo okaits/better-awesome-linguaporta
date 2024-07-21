@@ -1,55 +1,100 @@
 body {
-    width: 320px;
+  width: 350px;
+  margin: 20px;
 
-    background-color: #222;
+  background-color: #222;
 
-    font-family: 'Arial','Yu Gothic UI','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
-    font-size: 24px;
-    color: snow;
+  font-family: "Arial", "Yu Gothic UI", "Hiragino Kaku Gothic ProN",
+    "ヒラギノ角ゴ ProN W3", sans-serif;
+  font-size: 18px;
+  color: snow;
+
+  user-select: none;
 }
 
 h1 {
-    font-size: 24px;
-
-    user-select: none;
+  font-size: 1.2rem;
 }
 
-p {
-    user-select: none;
+.property {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  user-select: none;
 }
 
 .toggle-outer {
-    width: 64px;
-    height: 32px;
+  width: 3rem;
+  height: 1.5rem;
+  margin: 0 1rem;
+  display: inline;
 
-    border-radius: 40px;
-    border: 2px solid snow;
+  border-radius: 2rem;
+  border: 2px solid snow;
 
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .toggle-inner {
-    width: calc(32px - 4px - 3px);
-    height: calc(32px - 4px - 3px);
+  width: calc(1.5rem - 4px - 2px);
+  height: calc(1.5rem - 4px - 2px);
 
-    margin: 2px 2px;
+  margin: 2px 2px;
 
-    border-radius: 0.9rem;
-    border: 1.5px solid snow;
+  border-radius: 50%;
+  border: 1.5px solid snow;
 
-    position: relative;
-    left: 0;
+  position: relative;
+  left: 0;
 
-    transition: 0.3s;
-    animation-timing-function: ease-out;
+  transition: 0.3s;
+  animation-timing-function: ease-out;
 }
 
 .toggle-inner.show {
-    left: 32px;
+  left: 1.5rem;
 
-    background-color: snow;
+  background-color: snow;
+}
+
+.button-outer {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 1rem;
+  padding: 0;
+
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  appearance: none;
+}
+
+.button-inner {
+  width: calc(1.5rem - 4px - 2px);
+  height: calc(1.5rem - 4px - 2px);
+  margin: 1px;
+
+  border-radius: 50%;
+  border: 2px solid #222;
+
+  background-color: snow;
+
+  transition: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+.button-outer:focus > div {
+  background-color: gray;
 }
 
 .gray {
-    color: gray;
+  color: gray;
 }
+
+.bullet {
+  margin-right: 0.3rem;
+}
+

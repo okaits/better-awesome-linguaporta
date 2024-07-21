@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Better LINGUAPORTA",
+    "name": "Awesome LINGUAPORTA",
     "version": "1.1.0",
 
     "description": "LINGUAPORTAの操作を超効率化(半自動化)します!",
@@ -15,12 +15,7 @@
     "content_scripts": [
         {
             "matches": ["https://*.linguaporta.jp/user/seibido/*"],
-            "js": ["src/script.js"]
-        },
-        {
-            "matches": ["https://*.linguaporta.jp/user/seibido/*"],
-            "js": ["src/override.js"],
-            "run_at": "document_start"
+            "js": ["src/awesome_lin.js"]
         }
     ],
     "declarative_net_request": {

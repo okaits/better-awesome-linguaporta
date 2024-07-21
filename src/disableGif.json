@@ -1,7 +1,0 @@
-[{
-    "id": 1,
-    "action": { "type": "block" },
-    "condition": {
-        "urlFilter": "www.linguaporta.jp/material/site_img/seikai/*.gif"
-    }
-}]
