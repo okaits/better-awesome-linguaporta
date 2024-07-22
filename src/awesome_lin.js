@@ -122,8 +122,7 @@ function selectMean() {
       chrome.storage.onChanged.addListener((changes, namespase) => {
         if (
           namespase === "local" &&
-          changes.autoSelectMean &&
-          changes.autoSelectMean.newValue === true
+          changes.autoSelectMean?.newValue === true
         ) {
           _selectMean(lastSearchedUnit); //async func
         }
@@ -133,10 +132,13 @@ function selectMean() {
 }
 
 async function _selectMean(lastSearchedUnit) {
-  const unitsParPage = Number(
-    (await safeQuerySelector(".unit-categories-display-count > .selected"))
-      .textContent,
-  );
+  const unitsParPage =
+    Number(
+      (await safeQuerySelector(".unit-categories-display-count > .selected"))
+        ?.textContent,
+    ) ||
+    document.querySelector("#unit-categories-table > table > tbody")
+      ?.childElementCount;
   const pageNum = Number(
     (
       await safeQuerySelector(
@@ -159,17 +161,27 @@ async function _selectMean(lastSearchedUnit) {
   if (firstUnit <= lastSearchedUnit + 1 && lastSearchedUnit < lastUnit) {
     const notDone = getNotDoneMean();
     if (notDone.length === 0) {
-      chrome.storage.local.set({ lastSearchedUnit: lastUnit }, () => {
-        Array.from(
-          document.querySelector(".unit-categories-footer > .paging > .paging")
-            .children,
-        )
-          .at(-1)
-          .click(); //got to next page
-      });
+      chrome.storage.local.set({ lastSearchedUnit: lastUnit }, () => {});
+      Array.from(
+        document.querySelector(".unit-categories-footer > .paging > .paging")
+          .children,
+      )
+        .at(-1)
+        .click(); //got to next page
+      await sleep(100);
+      selectMean();
     } else {
       notDone[0].children[3].children[0].click(); //click 学習 button
     }
+  } else {
+    Array.from(
+      document.querySelector(".unit-categories-footer > .paging > .paging")
+        .children,
+    )
+      .at(-1)
+      .click(); //go to next page
+    await sleep(100);
+    selectMean();
   }
 }
 
@@ -285,7 +297,9 @@ function nextProblemOrQuitProblem() {
   if (nextProblemButton) {
     nextProblemButton?.click();
   } else {
-    document.back.submit();
+    document
+      .querySelector('.page-back-link[onclick="document.back.submit()"]')
+      ?.click();
   }
 }
 

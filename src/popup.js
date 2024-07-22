@@ -1,10 +1,13 @@
-let autoSelectMean = document.querySelector("#auto-select-mean");
-let resetCount = document.querySelector("#reset-count");
+const autoSelectMean = document.querySelector("#auto-select-mean");
+const resetCount = document.querySelector("#reset-count");
+const startFrom = document.querySelector("#start-from");
 
-chrome.storage.local.get(["autoSelectMean"], (s) => {
+chrome.storage.local.get(["autoSelectMean", "lastSearchedUnit"], (s) => {
   if (s.autoSelectMean === true) {
     autoSelectMean.children[0].classList.add("show");
   }
+
+  startFrom.value = s.lastSearchedUnit;
 });
 
 autoSelectMean.addEventListener("click", () => {
@@ -21,4 +24,15 @@ autoSelectMean.addEventListener("click", () => {
 resetCount.addEventListener("click", () => {
   console.log("button clicked");
   chrome.storage.local.set({ lastSearchedUnit: 0 });
+  chrome.storage.local.get(["autoSelectMean", "lastSearchedUnit"], (s) => {
+    startFrom.value = s.lastSearchedUnit;
+  });
 });
+
+resetCount.addEventListener(
+  "change",
+  () => {
+    chrome.storage.local.set({ lastSearchedUnit: resetCount.value });
+  },
+  false,
+);

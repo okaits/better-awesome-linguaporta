@@ -1,5 +1,5 @@
 body {
-  width: 350px;
+  width: 500px;
   margin: 20px;
 
   background-color: #222;
@@ -98,3 +98,12 @@ h1 {
   margin-right: 0.3rem;
 }
 
+.number {
+  width: 2.4rem;
+  padding-left: 0.4rem;
+  margin: 0 1rem;
+
+  border: none;
+  outline: none;
+  border-radius: 1.5rem;
+}
