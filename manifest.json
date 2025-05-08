@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Better Awesome LINGUAPORTA",
-    "version": "0.0.2",
+    "version": "0.0.3",
 
     "description": "LINGUAPORTAの操作を超効率化(半自動化)します!",
     "icons": {
@@ -20,5 +20,12 @@
     ],
     "permissions": [
         "storage"
-    ]
+    ],
+
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "better-awesome-linguaporta@firefox.extensions.okaits7534.net",
+            "update_url": "https://www.okaits7534.net/firefox-extensions/updates.json"
+        }
+    }
 }
