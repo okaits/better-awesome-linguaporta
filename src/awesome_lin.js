@@ -1,4 +1,4 @@
-console.log("Awesome LINGUAPORTA is working.");
+console.log("Better Awesome LINGUAPORTA is working.");
 
 const pageType = Object.freeze({
   top: 101,
