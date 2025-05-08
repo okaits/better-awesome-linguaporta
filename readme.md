@@ -56,6 +56,6 @@ Chrome/Firefox Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibid
 1. [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)を開くと作動します
 
 ## How to Use (Firefox)
-1. [ここ](https://github.com/okaits/better-awesome-linguaporta/releases)から最新の`better-awesome-linguaporta-0.0.2.xpi`をクリック
+1. [ここ](https://github.com/okaits/better-awesome-linguaporta/releases)から最新の`better-awesome-linguaporta-(バージョン).xpi`をクリック
 2. Firefoxが自動的に拡張機能をインストールするかを聞いてくるので、インストールする
 3. [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)を開くと作動します
