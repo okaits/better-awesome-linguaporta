@@ -1,7 +1,7 @@
-# Awesome LINGUAPORTA
-[LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)の操作を超効率化（半自動化）します!
+# Better Awesome LINGUAPORTA
+[LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)の操作を超効率化（半自動化）するAwesome LINGUAPORTAのフォークです。  
 
-Chrome/Firefox Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)
+Chrome/Firefox Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php).
 
 > [!NOTE]
 > 問題解答の自動化ではありません
