@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Better Awesome LINGUAPORTA",
-    "version": "0.0.1",
+    "version": "0.0.2",
 
     "description": "LINGUAPORTAの操作を超効率化(半自動化)します!",
     "icons": {
