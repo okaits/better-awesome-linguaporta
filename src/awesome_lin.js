@@ -253,20 +253,6 @@ function sortChoices() {
         el.addEventListener("change", answer, false);
       }
 
-      document.addEventListener("keypress", e => {
-        if (e.key == "1") {
-          document.querySelectorAll("#drill_form div")[0].children[0].click();
-        } else if (e.key == "2") {
-          document.querySelectorAll("#drill_form div")[1].children[0].click();
-        } else if (e.key == "3") {
-          document.querySelectorAll("#drill_form div")[2].children[0].click();
-        } else if (e.key == "4") {
-          document.querySelectorAll("#drill_form div")[3].children[0].click();
-        } else if (e.key == "5") {
-          document.querySelectorAll("#drill_form div")[4].children[0].click();
-        };
-      });
-
       choice.appendChild(el);
     }
     choices.push(choice);
@@ -287,6 +273,21 @@ function sortChoices() {
   while (formEls.length != 0) {
     formEl.appendChild(formEls.shift());
   }
+
+  document.addEventListener("keypress", e => {
+    if (e.key == "1") {
+      document.querySelectorAll("#drill_form div")[0].children[0].click();
+    } else if (e.key == "2") {
+      document.querySelectorAll("#drill_form div")[1].children[0].click();
+    } else if (e.key == "3") {
+      document.querySelectorAll("#drill_form div")[2].children[0].click();
+    } else if (e.key == "4") {
+      document.querySelectorAll("#drill_form div")[3].children[0].click();
+    } else if (e.key == "5") {
+      document.querySelectorAll("#drill_form div")[4].children[0].click();
+    };
+  });
+
 }
 
 function answer() {
