@@ -20,5 +20,12 @@
     ],
     "permissions": [
         "storage"
-    ]
+    ],
+
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "better-awesome-linguaporta@firefox.extensions.okaits7534.net",
+            "update_url": "https://www.okaits7534.net/firefox-extensions/updates.json"
+        }
+    }
 }
