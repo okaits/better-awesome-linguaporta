@@ -274,6 +274,7 @@ function sortChoices() {
     formEl.appendChild(formEls.shift());
   }
 
+  const answerKeys = [];
   document.addEventListener("keypress", e => {
     if (e.key == "1") {
       document.querySelectorAll("#drill_form div")[0].children[0].click();
@@ -285,6 +286,19 @@ function sortChoices() {
       document.querySelectorAll("#drill_form div")[3].children[0].click();
     } else if (e.key == "5") {
       document.querySelectorAll("#drill_form div")[4].children[0].click();
+    } else {
+      answerKeys.push(e.key)
+      if (answerKeys.join("").indexOf("one") >= 0) {
+        document.querySelectorAll("#drill_form div")[0].children[0].click();
+      } else if (answerKeys.join("").indexOf("two") >= 0) {
+        document.querySelectorAll("#drill_form div")[1].children[0].click();
+      } else if (answerKeys.join("").indexOf("thr") >= 0) {
+        document.querySelectorAll("#drill_form div")[2].children[0].click();
+      } else if (answerKeys.join("").indexOf("fou") >= 0) {
+        document.querySelectorAll("#drill_form div")[3].children[0].click();
+      } else if (answerKeys.join("").indexOf("fiv") >= 0) {
+        document.querySelectorAll("#drill_form div")[4].children[0].click();
+      };
     };
   });
 
