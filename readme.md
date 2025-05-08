@@ -12,7 +12,8 @@ Chrome/Firefox Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibid
         - [設定](#enable-auto-select)で有効にできます
     - [Other / その他の機能](#others)
 - [Supported Units List / サポートされているユニット一覧](#supported-units-list)
-- [How to Use / インストール方法](#how-to-use)
+- [How to Use / インストール方法 (Google Chrome)](#how-to-use-google-chrome)
+- [How to Use / インストール方法 (Firefox)](#how-to-use-firefox)
 
 ## Feature / 機能
 ### Auto Select "単語の意味"
@@ -43,7 +44,7 @@ Chrome/Firefox Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibid
 
 ## How to Use (Google Chrome)
 ### 1. 拡張機能のファイル群をダウンロード
-1. [ここ](https://github.com/cykps/awesome-linguaporta/releases)から最新の`Source code (zip)`をクリック、ダウンロード
+1. [ここ](https://github.com/okaits/better-awesome-linguaporta/releases)から最新の`Source code (zip)`をクリック、ダウンロード
 2. ダウンロードしたファイルは**展開**してください
 
 ### 2. Chromeに拡張機能を読み込ませる
