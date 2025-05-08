@@ -34,6 +34,7 @@ Chrome/Firefox Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibid
     - 正解だったら、自動的に次の問題が表示される
     - キーボードで数字キーを押下した際に自動的に選択肢が選択され、送信される
     - キーボードでone, two, thr, fou(r), fiv(e)と入力した場合、自動的に選択肢が選択され、送信される（ミスタイプ対策）
+    - 選択肢それぞれの先頭に番号がつく
 - **`Study(学習書籍)`** : 学習する本を選ぶページ
     - 表示されている書籍が1つの場合、それを選択する
 
