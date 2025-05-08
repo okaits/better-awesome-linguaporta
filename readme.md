@@ -43,7 +43,7 @@ Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.
 
 ## How to Use
 ### 1. 拡張機能のファイル群をダウンロード
-1. [ここ](https://github.com/cykps/awesome-linguaporta/releases)から最新の`awesome-linguaporta.zip`をダウンロード
+1. [ここ](https://github.com/cykps/awesome-linguaporta/releases)から最新の`Source code (zip)`をクリック、ダウンロード
 2. ダウンロードしたファイルは**展開**してください
 
 ### 2. Chromeに拡張機能を読み込ませる
