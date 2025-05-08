@@ -1,7 +1,7 @@
 # Awesome LINGUAPORTA
 [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)の操作を超効率化（半自動化）します!
 
-Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)
+Chrome/Firefox Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)
 
 > [!NOTE]
 > 問題解答の自動化ではありません
@@ -41,7 +41,7 @@ Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.
 - [ ] 単語並び替え
 - [ ] ディクテーション
 
-## How to Use
+## How to Use (Google Chrome)
 ### 1. 拡張機能のファイル群をダウンロード
 1. [ここ](https://github.com/cykps/awesome-linguaporta/releases)から最新の`Source code (zip)`をクリック、ダウンロード
 2. ダウンロードしたファイルは**展開**してください
@@ -54,3 +54,8 @@ Chrome Extension for [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.
 1. フォルダーの選択画面が出てくるので、先ほど展開した`awesome-linguaporta`フォルダーを選択
 1. 拡張機能が読み込まれます。やったね！（この時`エラー`と表示されるかもしれないが、Chromeのバグなので気にしなくていいです）
 1. [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)を開くと作動します
+
+## How to Use (Firefox)
+1. [ここ](https://github.com/okaits/better-awesome-linguaporta/releases)から最新の`better-awesome-linguaporta-(バージョン).xpi`をクリック
+2. Firefoxが自動的に拡張機能をインストールするかを聞いてくるので、インストールする
+3. [LINGUAPORTA](https://w5.linguaporta.jp/user/seibido/index.php)を開くと作動します
