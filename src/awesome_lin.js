@@ -274,8 +274,9 @@ function sortChoices() {
     formEl.appendChild(formEls.shift());
   }
 
-  const answerKeys = [];
-  document.addEventListener("keypress", e => {
+  const nowKeys = new Set(); // 現在押されているキー
+  const answerKeys = []; // 押されたキーの履歴
+  document.addEventListener("keydown", e => {
     if (e.key == "1") {
       document.querySelectorAll("#drill_form div")[0].children[0].click();
     } else if (e.key == "2") {
@@ -287,19 +288,25 @@ function sortChoices() {
     } else if (e.key == "5") {
       document.querySelectorAll("#drill_form div")[4].children[0].click();
     } else {
-      answerKeys.push(e.key)
-      if (answerKeys.join("").indexOf("one") >= 0) {
+      answerKeys.push(e.key);
+      nowKeys.add(e.key);
+
+      if ((answerKeys.join("").indexOf("one") >= 0) || (nowKeys.has("o") && nowKeys.has("n") && nowKeys.has("e"))) {
         document.querySelectorAll("#drill_form div")[0].children[0].click();
-      } else if (answerKeys.join("").indexOf("two") >= 0) {
+      } else if ((answerKeys.join("").indexOf("two") >= 0) || (nowKeys.has("t") && nowKeys.has("w") && nowKeys.has("o"))) {
         document.querySelectorAll("#drill_form div")[1].children[0].click();
-      } else if (answerKeys.join("").indexOf("thr") >= 0) {
+      } else if ((answerKeys.join("").indexOf("thr") >= 0) || (nowKeys.has("t") && nowKeys.has("h") && nowKeys.has("r"))) {
         document.querySelectorAll("#drill_form div")[2].children[0].click();
-      } else if (answerKeys.join("").indexOf("fou") >= 0) {
+      } else if ((answerKeys.join("").indexOf("fou") >= 0) || (nowKeys.has("f") && nowKeys.has("o") && nowKeys.has("u"))) {
         document.querySelectorAll("#drill_form div")[3].children[0].click();
-      } else if (answerKeys.join("").indexOf("fiv") >= 0) {
+      } else if ((answerKeys.join("").indexOf("fiv") >= 0) || (nowKeys.has("f") && nowKeys.has("i") && nowKeys.has("v"))) {
         document.querySelectorAll("#drill_form div")[4].children[0].click();
       };
     };
+  });
+
+  document.addEventListener("keyup", e => {
+    nowKeys.delete(e.key);
   });
 
   // Rename choices
