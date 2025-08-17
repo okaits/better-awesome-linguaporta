@@ -310,7 +310,7 @@ function sortChoices() {
   });
 
   // Rename choices
-  choice_count = 1;
+  let choice_count = 1;
   for (const choice_div of document.querySelectorAll("#drill_form div")) {
     const choice_input = choice_div.children[0];
     choice_input.labels[0].innerText = choice_count.toString() + ". " + choice_input.labels[0].innerText;
