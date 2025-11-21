@@ -85,15 +85,15 @@ async function main() {
                 nowKeys.add(e.key);
 
                 if ((answerKeys.join("").indexOf("one") >= 0) || (nowKeys.has("o") && nowKeys.has("n") && nowKeys.has("e"))) {
-                    choices_div.querySelectorAll("button")[0].click();
+                    new_choices_div.querySelectorAll("button")[0].click();
                 } else if ((answerKeys.join("").indexOf("two") >= 0) || (nowKeys.has("t") && nowKeys.has("w") && nowKeys.has("o"))) {
-                    choices_div.querySelectorAll("button")[1].click();
+                    new_choices_div.querySelectorAll("button")[1].click();
                 } else if ((answerKeys.join("").indexOf("thr") >= 0) || (nowKeys.has("t") && nowKeys.has("h") && nowKeys.has("r"))) {
-                    choices_div.querySelectorAll("button")[2].click();
+                    new_choices_div.querySelectorAll("button")[2].click();
                 } else if ((answerKeys.join("").indexOf("fou") >= 0) || (nowKeys.has("f") && nowKeys.has("o") && nowKeys.has("u"))) {
-                    choices_div.querySelectorAll("button")[3].click();
+                    new_choices_div.querySelectorAll("button")[3].click();
                 } else if ((answerKeys.join("").indexOf("fiv") >= 0) || (nowKeys.has("f") && nowKeys.has("i") && nowKeys.has("v"))) {
-                    choices_div.querySelectorAll("button")[4].click();
+                    new_choices_div.querySelectorAll("button")[4].click();
                 };
             };
         });
