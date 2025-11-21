@@ -8,18 +8,11 @@
         "256": "icon/256.png"
     },
 
-    "action": {
-        "default_popup": "src/popup.html"
-    },
-
     "content_scripts": [
         {
             "matches": ["https://*.linguaporta.jp/user/seibido/*"],
-            "js": ["src/awesome_lin.js"]
+            "js": ["src/content-script.js"]
         }
-    ],
-    "permissions": [
-        "storage"
     ],
 
     "browser_specific_settings": {
