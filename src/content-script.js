@@ -5,6 +5,8 @@ async function main() {
     if (document.body.classList.contains("page-units")) {
         // Unit選択画面
         const table = document.getElementById("units_list");
+        // 念の為誤答履歴を削除
+        sessionStorage.triedBefore = "";
         const observerCallback = () => {
             console.log("callback function called!")
             const undone_tasks_startbtn = document.querySelectorAll("#unit-categories-table table tbody tr td.cate-study button");
@@ -57,8 +59,22 @@ async function main() {
             choiceButton.classList.toggle("button-primary");
             choiceButton.style.marginLeft = "10px";
             choiceButton.style.marginBottom = "10px";
-            choiceButton.addEventListener("click", () => {
+            choiceButton.dataset.choiceNum = choice_number;
+
+            const triedBefore = sessionStorage.triedBefore;
+            if (typeof triedBefore == "string" && triedBefore.split(",").includes(String(choice_number))) {
+                choiceButton.disabled = true;
+                choiceButton.style.backgroundColor = "gray";
+            }
+
+            choiceButton.addEventListener("click", e => {
                 formHiddenInput.value = choiceText;
+                const triedBefore = sessionStorage.triedBefore;
+                if (typeof triedBefore == "string") {
+                    sessionStorage.triedBefore = `${triedBefore},${String(e.currentTarget.dataset.choiceNum)}`
+                } else {
+                    sessionStorage.triedBefore = String(e.currentTarget.dataset.choiceNum)
+                }
                 document.getElementById("ans_submit").click();
             });
             new_choices_div.appendChild(choiceButton);
@@ -66,34 +82,38 @@ async function main() {
         }
         choices_div_parent.appendChild(new_choices_div);
 
+        function answer(choicenum) {
+            new_choices_div.querySelectorAll("button")[choicenum].click();
+        }
+
         // キーボード入力で解答
         const nowKeys = new Set(); // 現在押されているキー
         const answerKeys = []; // 押されたキーの履歴
         document.addEventListener("keydown", e => {
             if (e.key == "1") {
-                new_choices_div.querySelectorAll("button")[0].click();
+                answer(0);
             } else if (e.key == "2") {
-                new_choices_div.querySelectorAll("button")[1].click();
+                answer(1);
             } else if (e.key == "3") {
-                new_choices_div.querySelectorAll("button")[2].click();
+                answer(2);
             } else if (e.key == "4") {
-                new_choices_div.querySelectorAll("button")[3].click();
+                answer(3);
             } else if (e.key == "5") {
-                new_choices_div.querySelectorAll("button")[4].click();
+                answer(4);
             } else {
                 answerKeys.push(e.key);
                 nowKeys.add(e.key);
 
                 if ((answerKeys.join("").indexOf("one") >= 0) || (nowKeys.has("o") && nowKeys.has("n") && nowKeys.has("e"))) {
-                    new_choices_div.querySelectorAll("button")[0].click();
+                    answer(0);
                 } else if ((answerKeys.join("").indexOf("two") >= 0) || (nowKeys.has("t") && nowKeys.has("w") && nowKeys.has("o"))) {
-                    new_choices_div.querySelectorAll("button")[1].click();
+                    answer(1);
                 } else if ((answerKeys.join("").indexOf("thr") >= 0) || (nowKeys.has("t") && nowKeys.has("h") && nowKeys.has("r"))) {
-                    new_choices_div.querySelectorAll("button")[2].click();
+                    answer(2);
                 } else if ((answerKeys.join("").indexOf("fou") >= 0) || (nowKeys.has("f") && nowKeys.has("o") && nowKeys.has("u"))) {
-                    new_choices_div.querySelectorAll("button")[3].click();
+                    answer(3);
                 } else if ((answerKeys.join("").indexOf("fiv") >= 0) || (nowKeys.has("f") && nowKeys.has("i") && nowKeys.has("v"))) {
-                    new_choices_div.querySelectorAll("button")[4].click();
+                    answer(4);
                 };
             };
         });
@@ -101,6 +121,8 @@ async function main() {
             && document.querySelector('h2.page-title small b').innerText.includes("ラジオボタン")) {
         // 正解で、解説が表示されている画面
         const go_next_button = document.getElementsByClassName("button-next-problem")[0];
+        // 誤答履歴を削除
+        sessionStorage.triedBefore = "";
         if (go_next_button) {
             setTimeout(() => {go_next_button.click();}, 1000);
         } else {
