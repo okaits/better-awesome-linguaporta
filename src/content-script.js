@@ -1,7 +1,46 @@
+// 緊急停止フラグ
+let emergencyStop = false;
+
+// 緊急停止ボタンを作成
+function createEmergencyStopButton() {
+    const stopButton = document.createElement("button");
+    stopButton.id = "emergency-stop-button";
+    stopButton.innerText = "▶ 自動進行 ON";
+    stopButton.style.position = "fixed";
+    stopButton.style.top = "10px";
+    stopButton.style.right = "10px";
+    stopButton.style.zIndex = "10000";
+    stopButton.style.padding = "10px 20px";
+    stopButton.style.fontSize = "16px";
+    stopButton.style.fontWeight = "bold";
+    stopButton.style.backgroundColor = "#4CAF50";
+    stopButton.style.color = "white";
+    stopButton.style.border = "none";
+    stopButton.style.borderRadius = "5px";
+    stopButton.style.cursor = "pointer";
+    stopButton.style.boxShadow = "0 4px 6px rgba(0,0,0,0.3)";
+
+    stopButton.addEventListener("click", () => {
+        emergencyStop = !emergencyStop;
+        if (emergencyStop) {
+            stopButton.innerText = "⏸ 自動進行 OFF";
+            stopButton.style.backgroundColor = "#f44336";
+        } else {
+            stopButton.innerText = "▶ 自動進行 ON";
+            stopButton.style.backgroundColor = "#4CAF50";
+        }
+    });
+
+    document.body.appendChild(stopButton);
+}
+
 async function main() {
     while (!(document.getElementById("unit-categories-table") || document.getElementById("question_area"))) {
         await new Promise(r => setTimeout(r, 10));
     };
+    
+    // 緊急停止ボタンを追加
+    createEmergencyStopButton();
     if (document.body.classList.contains("page-units")) {
         // Unit選択画面
         const table = document.getElementById("units_list");
@@ -9,6 +48,7 @@ async function main() {
         sessionStorage.triedBefore = "";
         const observerCallback = () => {
             console.log("callback function called!")
+            if (emergencyStop) return; // 緊急停止中は処理しない
             const undone_tasks_startbtn = document.querySelectorAll("#unit-categories-table table tbody tr td.cate-study button");
             const units_nav_lastelem = Array.from(document.querySelector("div#unit-categories-table div nav nav.paging.pc-only").children).slice(-1)[0];
             for (const undone_task_startbtn of undone_tasks_startbtn) {
@@ -123,9 +163,9 @@ async function main() {
         const go_next_button = document.getElementsByClassName("button-next-problem")[0];
         // 誤答履歴を削除
         sessionStorage.triedBefore = "";
-        if (go_next_button) {
+        if (go_next_button && !emergencyStop) { // 緊急停止中は自動進行しない
             setTimeout(() => {go_next_button.click();}, 1000);
-        } else {
+        } else if (!emergencyStop) {
             document.back.submit()
         }
     }
