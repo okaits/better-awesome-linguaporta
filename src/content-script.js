@@ -163,10 +163,13 @@ async function main() {
         const go_next_button = document.getElementsByClassName("button-next-problem")[0];
         // 誤答履歴を削除
         sessionStorage.triedBefore = "";
-        if (go_next_button && !emergencyStop) { // 緊急停止中は自動進行しない
-            setTimeout(() => {go_next_button.click();}, 1000);
-        } else if (!emergencyStop) {
-            document.back.submit()
+        // 緊急停止中は自動進行しない
+        if (!emergencyStop) {
+            if (go_next_button) {
+                setTimeout(() => {go_next_button.click();}, 1000);
+            } else {
+                document.back.submit()
+            }
         }
     }
 };
