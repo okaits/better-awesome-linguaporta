@@ -18,6 +18,7 @@ async function main() {
                 for (const undone_task_startbtn of undone_tasks_startbtn) {
                     if (undone_task_startbtn.parentElement.parentElement.children[0].innerText.includes("単語の意味")) {
                         undone_task_startbtn.click();
+                        return;
                     };
                 };
                 units_nav_lastelem.click();
