@@ -1,4 +1,7 @@
+let recursiveProtect = 0 // 再帰する部分で、何かの間違いで無限ループに陥らないようにする
 async function main() {
+    if (recursiveProtect > 1) return;
+
     while (!(document.getElementById("unit-categories-table") || document.getElementById("question_area"))) {
         await new Promise(r => setTimeout(r, 10));
     };
@@ -7,20 +10,36 @@ async function main() {
         const table = document.getElementById("units_list");
         // 念の為誤答履歴を削除
         sessionStorage.triedBefore = "";
-        const observerCallback = () => {
-            console.log("callback function called!")
-            const undone_tasks_startbtn = document.querySelectorAll("#unit-categories-table table tbody tr td.cate-study button");
-            const units_nav_lastelem = Array.from(document.querySelector("div#unit-categories-table div nav nav.paging.pc-only").children).slice(-1)[0];
-            for (const undone_task_startbtn of undone_tasks_startbtn) {
-                if (undone_task_startbtn.parentElement.parentElement.children[0].innerText.includes("単語の意味")) {
-                    undone_task_startbtn.click();
+        if (sessionStorage.autoSelectEnabled == "true") {
+            const observerCallback = () => {
+                console.log("callback function called!")
+                const undone_tasks_startbtn = document.querySelectorAll("#unit-categories-table table tbody tr td.cate-study button");
+                const units_nav_lastelem = Array.from(document.querySelector("div#unit-categories-table div nav nav.paging.pc-only").children).slice(-1)[0];
+                for (const undone_task_startbtn of undone_tasks_startbtn) {
+                    if (undone_task_startbtn.parentElement.parentElement.children[0].innerText.includes("単語の意味")) {
+                        undone_task_startbtn.click();
+                    };
                 };
-            };
-            units_nav_lastelem.click();
+                units_nav_lastelem.click();
+            }
+            const observer = new MutationObserver(observerCallback);
+            observer.observe(table, {childList: true});
+            observerCallback();
+        } else {
+            const startAutoSelectButton = document.createElement("button");
+            startAutoSelectButton.classList.toggle("button")
+            startAutoSelectButton.classList.toggle("button-primary")
+            startAutoSelectButton.style.paddingTop = "10px";
+            startAutoSelectButton.style.paddingBottom = "10px";
+            startAutoSelectButton.style.marginBottom = "10px";
+            startAutoSelectButton.innerText = "自動で「単語の意味」を選択する (Better Awesome)";
+            startAutoSelectButton.addEventListener("click", () => {
+                sessionStorage.autoSelectEnabled = "true";
+                recursiveProtect++;
+                main(); // 最初からやり直す
+            });
+            table.before(startAutoSelectButton);
         }
-        const observer = new MutationObserver(observerCallback);
-        observer.observe(table, {childList: true});
-        observerCallback();
     } else if (document.body.classList.contains("page-problem") 
             && document.querySelector('h2.page-title small b').innerText.includes("ラジオボタン")
             && !document.getElementById("commentary")) {
@@ -85,6 +104,21 @@ async function main() {
         }
         choices_div_parent.appendChild(new_choices_div);
 
+        if (sessionStorage.autoSelectEnabled == "true") {
+            const stopButton = document.createElement("button");
+            stopButton.type = "button";
+            stopButton.innerText = "「単語の意味」の自動選択をやめる";
+            stopButton.classList.toggle("button");
+            stopButton.classList.toggle("button-failure");
+            stopButton.style.marginLeft = "10px";
+            stopButton.style.marginBottom = "10px";
+            stopButton.addEventListener("click", () => {
+                sessionStorage.autoSelectEnabled = "false";
+                window.alert("このUnitの終了後、自動選択が終了し他のUnitも選べるようになります。");
+                stopButton.style.display = "none";
+            });
+            choices_div_parent.appendChild(stopButton);
+        }
         function answer(choicenum) {
             new_choices_div.querySelectorAll("button")[choicenum].click();
         }
