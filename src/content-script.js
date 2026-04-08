@@ -51,6 +51,7 @@ async function main() {
         choices_div_parent.appendChild(formHiddenRadio);
 
         let choice_number = 1;
+        let answer_sending = false;
         for (const choiceText of choiceTexts) {
             const choiceButton = document.createElement("button");
             choiceButton.type = "button";
@@ -68,6 +69,8 @@ async function main() {
             }
 
             choiceButton.addEventListener("click", e => {
+                if (answer_sending) return;
+                answer_sending = true;
                 formHiddenInput.value = choiceText;
                 const triedBefore = sessionStorage.triedBefore;
                 if (typeof triedBefore == "string") {
